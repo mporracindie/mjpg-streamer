@@ -1,0 +1,1 @@
+./mjpg_streamer -i "/home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/input_uvc/input_uvc.so -d /dev/video0 -r 1280x960" -o "/home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/output_http/output_http.so -w /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/www"

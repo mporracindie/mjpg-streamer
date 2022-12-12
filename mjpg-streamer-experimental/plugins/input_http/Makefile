@@ -87,18 +87,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
 # Special rule for the target list_install_components
 list_install_components:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
@@ -108,17 +96,6 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -143,16 +120,39 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/input_file//CMakeFiles/progress.marks
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/all
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/input_http//CMakeFiles/progress.marks
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_http/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/clean
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_http/clean
 .PHONY : clean
 
 # The main clean target
@@ -162,12 +162,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/preinstall
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_http/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/preinstall
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_http/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -176,46 +176,100 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-plugins/input_file/CMakeFiles/input_file.dir/rule:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/CMakeFiles/input_file.dir/rule
-.PHONY : plugins/input_file/CMakeFiles/input_file.dir/rule
+plugins/input_http/CMakeFiles/input_http.dir/rule:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_http/CMakeFiles/input_http.dir/rule
+.PHONY : plugins/input_http/CMakeFiles/input_http.dir/rule
 
 # Convenience name for target.
-input_file: plugins/input_file/CMakeFiles/input_file.dir/rule
+input_http: plugins/input_http/CMakeFiles/input_http.dir/rule
 
-.PHONY : input_file
+.PHONY : input_http
 
 # fast build rule for target.
-input_file/fast:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/build
-.PHONY : input_file/fast
+input_http/fast:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/build
+.PHONY : input_http/fast
 
-input_file.o: input_file.c.o
+input_http.o: input_http.c.o
 
-.PHONY : input_file.o
+.PHONY : input_http.o
 
 # target to build an object file
-input_file.c.o:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.o
-.PHONY : input_file.c.o
+input_http.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/input_http.c.o
+.PHONY : input_http.c.o
 
-input_file.i: input_file.c.i
+input_http.i: input_http.c.i
 
-.PHONY : input_file.i
+.PHONY : input_http.i
 
 # target to preprocess a source file
-input_file.c.i:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.i
-.PHONY : input_file.c.i
+input_http.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/input_http.c.i
+.PHONY : input_http.c.i
 
-input_file.s: input_file.c.s
+input_http.s: input_http.c.s
 
-.PHONY : input_file.s
+.PHONY : input_http.s
 
 # target to generate assembly for a file
-input_file.c.s:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.s
-.PHONY : input_file.c.s
+input_http.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/input_http.c.s
+.PHONY : input_http.c.s
+
+misc.o: misc.c.o
+
+.PHONY : misc.o
+
+# target to build an object file
+misc.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/misc.c.o
+.PHONY : misc.c.o
+
+misc.i: misc.c.i
+
+.PHONY : misc.i
+
+# target to preprocess a source file
+misc.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/misc.c.i
+.PHONY : misc.c.i
+
+misc.s: misc.c.s
+
+.PHONY : misc.s
+
+# target to generate assembly for a file
+misc.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/misc.c.s
+.PHONY : misc.c.s
+
+mjpg-proxy.o: mjpg-proxy.c.o
+
+.PHONY : mjpg-proxy.o
+
+# target to build an object file
+mjpg-proxy.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/mjpg-proxy.c.o
+.PHONY : mjpg-proxy.c.o
+
+mjpg-proxy.i: mjpg-proxy.c.i
+
+.PHONY : mjpg-proxy.i
+
+# target to preprocess a source file
+mjpg-proxy.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/mjpg-proxy.c.i
+.PHONY : mjpg-proxy.c.i
+
+mjpg-proxy.s: mjpg-proxy.c.s
+
+.PHONY : mjpg-proxy.s
+
+# target to generate assembly for a file
+mjpg-proxy.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_http/CMakeFiles/input_http.dir/build.make plugins/input_http/CMakeFiles/input_http.dir/mjpg-proxy.c.s
+.PHONY : mjpg-proxy.c.s
 
 # Help Target
 help:
@@ -229,10 +283,16 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... input_file"
-	@echo "... input_file.o"
-	@echo "... input_file.i"
-	@echo "... input_file.s"
+	@echo "... input_http"
+	@echo "... input_http.o"
+	@echo "... input_http.i"
+	@echo "... input_http.s"
+	@echo "... misc.o"
+	@echo "... misc.i"
+	@echo "... misc.s"
+	@echo "... mjpg-proxy.o"
+	@echo "... mjpg-proxy.i"
+	@echo "... mjpg-proxy.s"
 .PHONY : help
 
 

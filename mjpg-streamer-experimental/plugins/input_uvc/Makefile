@@ -145,14 +145,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/input_file//CMakeFiles/progress.marks
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/all
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/input_uvc//CMakeFiles/progress.marks
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_uvc/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/clean
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_uvc/clean
 .PHONY : clean
 
 # The main clean target
@@ -162,12 +162,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/preinstall
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_uvc/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/preinstall
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_uvc/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -176,46 +176,127 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-plugins/input_file/CMakeFiles/input_file.dir/rule:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/CMakeFiles/input_file.dir/rule
-.PHONY : plugins/input_file/CMakeFiles/input_file.dir/rule
+plugins/input_uvc/CMakeFiles/input_uvc.dir/rule:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_uvc/CMakeFiles/input_uvc.dir/rule
+.PHONY : plugins/input_uvc/CMakeFiles/input_uvc.dir/rule
 
 # Convenience name for target.
-input_file: plugins/input_file/CMakeFiles/input_file.dir/rule
+input_uvc: plugins/input_uvc/CMakeFiles/input_uvc.dir/rule
 
-.PHONY : input_file
+.PHONY : input_uvc
 
 # fast build rule for target.
-input_file/fast:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/build
-.PHONY : input_file/fast
+input_uvc/fast:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/build
+.PHONY : input_uvc/fast
 
-input_file.o: input_file.c.o
+dynctrl.o: dynctrl.c.o
 
-.PHONY : input_file.o
+.PHONY : dynctrl.o
 
 # target to build an object file
-input_file.c.o:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.o
-.PHONY : input_file.c.o
+dynctrl.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/dynctrl.c.o
+.PHONY : dynctrl.c.o
 
-input_file.i: input_file.c.i
+dynctrl.i: dynctrl.c.i
 
-.PHONY : input_file.i
+.PHONY : dynctrl.i
 
 # target to preprocess a source file
-input_file.c.i:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.i
-.PHONY : input_file.c.i
+dynctrl.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/dynctrl.c.i
+.PHONY : dynctrl.c.i
 
-input_file.s: input_file.c.s
+dynctrl.s: dynctrl.c.s
 
-.PHONY : input_file.s
+.PHONY : dynctrl.s
 
 # target to generate assembly for a file
-input_file.c.s:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.s
-.PHONY : input_file.c.s
+dynctrl.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/dynctrl.c.s
+.PHONY : dynctrl.c.s
+
+input_uvc.o: input_uvc.c.o
+
+.PHONY : input_uvc.o
+
+# target to build an object file
+input_uvc.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/input_uvc.c.o
+.PHONY : input_uvc.c.o
+
+input_uvc.i: input_uvc.c.i
+
+.PHONY : input_uvc.i
+
+# target to preprocess a source file
+input_uvc.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/input_uvc.c.i
+.PHONY : input_uvc.c.i
+
+input_uvc.s: input_uvc.c.s
+
+.PHONY : input_uvc.s
+
+# target to generate assembly for a file
+input_uvc.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/input_uvc.c.s
+.PHONY : input_uvc.c.s
+
+jpeg_utils.o: jpeg_utils.c.o
+
+.PHONY : jpeg_utils.o
+
+# target to build an object file
+jpeg_utils.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/jpeg_utils.c.o
+.PHONY : jpeg_utils.c.o
+
+jpeg_utils.i: jpeg_utils.c.i
+
+.PHONY : jpeg_utils.i
+
+# target to preprocess a source file
+jpeg_utils.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/jpeg_utils.c.i
+.PHONY : jpeg_utils.c.i
+
+jpeg_utils.s: jpeg_utils.c.s
+
+.PHONY : jpeg_utils.s
+
+# target to generate assembly for a file
+jpeg_utils.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/jpeg_utils.c.s
+.PHONY : jpeg_utils.c.s
+
+v4l2uvc.o: v4l2uvc.c.o
+
+.PHONY : v4l2uvc.o
+
+# target to build an object file
+v4l2uvc.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/v4l2uvc.c.o
+.PHONY : v4l2uvc.c.o
+
+v4l2uvc.i: v4l2uvc.c.i
+
+.PHONY : v4l2uvc.i
+
+# target to preprocess a source file
+v4l2uvc.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/v4l2uvc.c.i
+.PHONY : v4l2uvc.c.i
+
+v4l2uvc.s: v4l2uvc.c.s
+
+.PHONY : v4l2uvc.s
+
+# target to generate assembly for a file
+v4l2uvc.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_uvc/CMakeFiles/input_uvc.dir/build.make plugins/input_uvc/CMakeFiles/input_uvc.dir/v4l2uvc.c.s
+.PHONY : v4l2uvc.c.s
 
 # Help Target
 help:
@@ -229,10 +310,19 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... input_file"
-	@echo "... input_file.o"
-	@echo "... input_file.i"
-	@echo "... input_file.s"
+	@echo "... input_uvc"
+	@echo "... dynctrl.o"
+	@echo "... dynctrl.i"
+	@echo "... dynctrl.s"
+	@echo "... input_uvc.o"
+	@echo "... input_uvc.i"
+	@echo "... input_uvc.s"
+	@echo "... jpeg_utils.o"
+	@echo "... jpeg_utils.i"
+	@echo "... jpeg_utils.s"
+	@echo "... v4l2uvc.o"
+	@echo "... v4l2uvc.i"
+	@echo "... v4l2uvc.s"
 .PHONY : help
 
 

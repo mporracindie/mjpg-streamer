@@ -109,17 +109,6 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -143,16 +132,27 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/input_file//CMakeFiles/progress.marks
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/all
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/output_file//CMakeFiles/progress.marks
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_file/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/clean
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_file/clean
 .PHONY : clean
 
 # The main clean target
@@ -162,12 +162,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/preinstall
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_file/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/preinstall
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_file/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -176,46 +176,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-plugins/input_file/CMakeFiles/input_file.dir/rule:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/CMakeFiles/input_file.dir/rule
-.PHONY : plugins/input_file/CMakeFiles/input_file.dir/rule
+plugins/output_file/CMakeFiles/output_file.dir/rule:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_file/CMakeFiles/output_file.dir/rule
+.PHONY : plugins/output_file/CMakeFiles/output_file.dir/rule
 
 # Convenience name for target.
-input_file: plugins/input_file/CMakeFiles/input_file.dir/rule
+output_file: plugins/output_file/CMakeFiles/output_file.dir/rule
 
-.PHONY : input_file
+.PHONY : output_file
 
 # fast build rule for target.
-input_file/fast:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/build
-.PHONY : input_file/fast
+output_file/fast:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/output_file/CMakeFiles/output_file.dir/build.make plugins/output_file/CMakeFiles/output_file.dir/build
+.PHONY : output_file/fast
 
-input_file.o: input_file.c.o
+output_file.o: output_file.c.o
 
-.PHONY : input_file.o
+.PHONY : output_file.o
 
 # target to build an object file
-input_file.c.o:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.o
-.PHONY : input_file.c.o
+output_file.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/output_file/CMakeFiles/output_file.dir/build.make plugins/output_file/CMakeFiles/output_file.dir/output_file.c.o
+.PHONY : output_file.c.o
 
-input_file.i: input_file.c.i
+output_file.i: output_file.c.i
 
-.PHONY : input_file.i
+.PHONY : output_file.i
 
 # target to preprocess a source file
-input_file.c.i:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.i
-.PHONY : input_file.c.i
+output_file.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/output_file/CMakeFiles/output_file.dir/build.make plugins/output_file/CMakeFiles/output_file.dir/output_file.c.i
+.PHONY : output_file.c.i
 
-input_file.s: input_file.c.s
+output_file.s: output_file.c.s
 
-.PHONY : input_file.s
+.PHONY : output_file.s
 
 # target to generate assembly for a file
-input_file.c.s:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.s
-.PHONY : input_file.c.s
+output_file.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/output_file/CMakeFiles/output_file.dir/build.make plugins/output_file/CMakeFiles/output_file.dir/output_file.c.s
+.PHONY : output_file.c.s
 
 # Help Target
 help:
@@ -229,10 +229,10 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... input_file"
-	@echo "... input_file.o"
-	@echo "... input_file.i"
-	@echo "... input_file.s"
+	@echo "... output_file"
+	@echo "... output_file.o"
+	@echo "... output_file.i"
+	@echo "... output_file.s"
 .PHONY : help
 
 

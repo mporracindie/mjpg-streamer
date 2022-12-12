@@ -75,18 +75,6 @@ CMAKE_BINARY_DIR = /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -108,17 +96,6 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -143,16 +120,39 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/input_file//CMakeFiles/progress.marks
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/all
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/plugins/output_rtsp//CMakeFiles/progress.marks
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_rtsp/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/clean
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_rtsp/clean
 .PHONY : clean
 
 # The main clean target
@@ -162,12 +162,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/preinstall
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_rtsp/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/preinstall
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_rtsp/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
@@ -176,46 +176,46 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-plugins/input_file/CMakeFiles/input_file.dir/rule:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/input_file/CMakeFiles/input_file.dir/rule
-.PHONY : plugins/input_file/CMakeFiles/input_file.dir/rule
+plugins/output_rtsp/CMakeFiles/output_rtsp.dir/rule:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 plugins/output_rtsp/CMakeFiles/output_rtsp.dir/rule
+.PHONY : plugins/output_rtsp/CMakeFiles/output_rtsp.dir/rule
 
 # Convenience name for target.
-input_file: plugins/input_file/CMakeFiles/input_file.dir/rule
+output_rtsp: plugins/output_rtsp/CMakeFiles/output_rtsp.dir/rule
 
-.PHONY : input_file
+.PHONY : output_rtsp
 
 # fast build rule for target.
-input_file/fast:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/build
-.PHONY : input_file/fast
+output_rtsp/fast:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/output_rtsp/CMakeFiles/output_rtsp.dir/build.make plugins/output_rtsp/CMakeFiles/output_rtsp.dir/build
+.PHONY : output_rtsp/fast
 
-input_file.o: input_file.c.o
+output_rtsp.o: output_rtsp.c.o
 
-.PHONY : input_file.o
+.PHONY : output_rtsp.o
 
 # target to build an object file
-input_file.c.o:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.o
-.PHONY : input_file.c.o
+output_rtsp.c.o:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/output_rtsp/CMakeFiles/output_rtsp.dir/build.make plugins/output_rtsp/CMakeFiles/output_rtsp.dir/output_rtsp.c.o
+.PHONY : output_rtsp.c.o
 
-input_file.i: input_file.c.i
+output_rtsp.i: output_rtsp.c.i
 
-.PHONY : input_file.i
+.PHONY : output_rtsp.i
 
 # target to preprocess a source file
-input_file.c.i:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.i
-.PHONY : input_file.c.i
+output_rtsp.c.i:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/output_rtsp/CMakeFiles/output_rtsp.dir/build.make plugins/output_rtsp/CMakeFiles/output_rtsp.dir/output_rtsp.c.i
+.PHONY : output_rtsp.c.i
 
-input_file.s: input_file.c.s
+output_rtsp.s: output_rtsp.c.s
 
-.PHONY : input_file.s
+.PHONY : output_rtsp.s
 
 # target to generate assembly for a file
-input_file.c.s:
-	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/input_file/CMakeFiles/input_file.dir/build.make plugins/input_file/CMakeFiles/input_file.dir/input_file.c.s
-.PHONY : input_file.c.s
+output_rtsp.c.s:
+	cd /home/pi/experiments/mjpg-streamer/mjpg-streamer-experimental && $(MAKE) $(MAKESILENT) -f plugins/output_rtsp/CMakeFiles/output_rtsp.dir/build.make plugins/output_rtsp/CMakeFiles/output_rtsp.dir/output_rtsp.c.s
+.PHONY : output_rtsp.c.s
 
 # Help Target
 help:
@@ -229,10 +229,10 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... input_file"
-	@echo "... input_file.o"
-	@echo "... input_file.i"
-	@echo "... input_file.s"
+	@echo "... output_rtsp"
+	@echo "... output_rtsp.o"
+	@echo "... output_rtsp.i"
+	@echo "... output_rtsp.s"
 .PHONY : help
 
 
